@@ -15,6 +15,7 @@
     - [Pizarra clase 1](./clase_1/clase_1cpp.excalidraw)
 - [Clase 2](./clase_2/clase-2.md) 
     - [Codigo clase 2](./clase_2/codigo)
+- [Clase 3](./clase_3/clase-3.md) 
 
 ## Para los diagramas y dibujos
 
