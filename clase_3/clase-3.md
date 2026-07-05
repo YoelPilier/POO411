@@ -61,6 +61,12 @@ std::cout << *pEdad << std::endl;
 | `*` | Accede al valor guardado en esa dirección |
 | `->` | Accede a miembros usando un puntero |
 
+---
+# Operadores de Punteros
+
+![bg  left:30% width:100% ](./imagenes/puntero_this.png)
+
+
 ```cpp
 Persona persona("Juan", 20);
 
@@ -101,7 +107,9 @@ int* numero = new int(10);
 std::cout << *numero << std::endl;
 
 delete numero;
-numero = nunewdelete---
+numero = nunewdelete
+```
+---
 
 # Objetos con new y delete
 
@@ -194,6 +202,13 @@ p2->saludar();
 No aumenta el conteo de referencias.
 
 El objeto se libera cuando ya no queda ningún `std::shared_ptr`.
+
+---
+
+# weak_ptr
+
+![bg  left:30% width:100% ](./imagenes/smartptr.png)
+
 
 ```cpp
 #include <memory>
@@ -430,7 +445,14 @@ public:
         const Persona& p
     );
 };
+```
+---
 
+# Sobrecarga de <<
+
+![bg  left:30% width:100% ](./imagenes/sobrecargaoperadores.png)
+
+```cpp
 std::ostream& operator<<(std::ostream& os, const Persona& p) {
     os << p.nombre << " " << p.edad;
     return os;
@@ -466,6 +488,17 @@ public:
         Persona& p
     );
 };
+
+```
+
+---
+
+# Sobrecarga de >>
+
+![bg  left:30% width:100% ](./imagenes/sobrecargaoperadores.png)
+
+```cpp
+
 
 std::istream& operator>>(std::istream& is, Persona& p) {
     is >> p.nombre >> p.edad;
