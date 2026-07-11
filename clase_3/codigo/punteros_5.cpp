@@ -9,12 +9,17 @@ public:
   Persona(std::string _nombre, int _edad) {
     (*this).nombre = _nombre;
 
-    this->edad =
+    this->edad = new int(_edad);
   }
   void Saludar() const {
-    std::cout << "Hola soy " << this->nombre << " el cobrador" << std::endl;
+    std::cout << "Hola soy " << this->nombre << " el cobrador"
+              << "mi edad es:" << *this->edad << std::endl;
   }
-  ~Persona() { std::cout << "Muerto" << std::endl; }
+  ~Persona() {
+    delete this->edad;
+    this->edad = nullptr;
+    std::cout << "Muerto" << std::endl;
+  }
 };
 
 void Nacer_y_Morir() {
