@@ -13,6 +13,10 @@ public:
     Profesor(const std::string& nombreCompleto,
              const std::string& codigoProfesor);
 
+    Profesor(const Profesor& otro);
+
+    Profesor& operator=(const Profesor& otro);
+
     std::string getNombreCompleto() const;
     std::string getCodigoProfesor() const;
 };

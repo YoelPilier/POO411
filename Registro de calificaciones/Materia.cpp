@@ -12,6 +12,12 @@ Materia::Materia(const std::string& nombreMateria,
       cantidadCreditos(cantidadCreditos) {
 }
 
+Materia::Materia(const Materia& otra)
+    : nombreMateria(otra.nombreMateria),
+      codigoMateria(otra.codigoMateria),
+      cantidadCreditos(otra.cantidadCreditos) {
+}
+
 std::string Materia::getNombreMateria() const {
     return nombreMateria;
 }
@@ -22,4 +28,13 @@ std::string Materia::getCodigoMateria() const {
 
 int Materia::getCantidadCreditos() const {
     return cantidadCreditos;
+}
+
+Materia& Materia::operator=(const Materia& otra) {
+    if (this != &otra) {
+        nombreMateria = otra.nombreMateria;
+        codigoMateria = otra.codigoMateria;
+        cantidadCreditos = otra.cantidadCreditos;
+    }
+    return *this;
 }

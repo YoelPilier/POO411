@@ -52,7 +52,7 @@ void Sistema::registrarEstudiante() {
     std::cout << "Sesion: ";
     std::getline(std::cin, sesion);
 
-    estudiantes.push_back(
+    agregar(
         Estudiante(nombre, matricula, sesion)
     );
 }
@@ -81,7 +81,7 @@ void Sistema::registrarProfesor() {
 
     } while (codigo.empty());
 
-    profesores.push_back(
+    agregar(
         Profesor(nombre, codigo)
     );
 }
@@ -123,9 +123,20 @@ void Sistema::registrarMateria() {
 
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
-    materias.push_back(
+    agregar(
         Materia(nombre, codigo, creditos)
     );
+}
+void Sistema::agregar(const Estudiante& estudiante) {
+    estudiantes.push_back(estudiante);
+}
+
+void Sistema::agregar(const Profesor& profesor) {
+    profesores.push_back(profesor);
+}
+
+void Sistema::agregar(const Materia& materia) {
+    materias.push_back(materia);
 }
 
 void Sistema::registrarCalificacion() {

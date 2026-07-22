@@ -15,6 +15,10 @@ public:
                const std::string& matricula,
                const std::string& sesion);
 
+    Estudiante(const Estudiante& otro);
+
+    Estudiante& operator=(const Estudiante& otro);
+
     std::string getNombreCompleto() const;
     std::string getMatricula() const;
     std::string getSesion() const;

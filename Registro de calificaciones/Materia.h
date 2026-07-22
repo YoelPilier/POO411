@@ -15,6 +15,10 @@ public:
             const std::string& codigoMateria,
             int cantidadCreditos);
 
+    Materia(const Materia& otra);
+
+    Materia& operator=(const Materia& otra);
+
     std::string getNombreMateria() const;
     std::string getCodigoMateria() const;
     int getCantidadCreditos() const;

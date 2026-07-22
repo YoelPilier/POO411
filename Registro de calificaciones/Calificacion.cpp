@@ -15,6 +15,13 @@ Calificacion::Calificacion(
       nota(nota) {
 }
 
+Calificacion::Calificacion(const Calificacion& otra)
+    : estudiante(otra.estudiante),
+      profesor(otra.profesor),
+      materia(otra.materia),
+      nota(otra.nota) {
+}
+
 Estudiante Calificacion::getEstudiante() const {
     return estudiante;
 }
@@ -29,4 +36,14 @@ Materia Calificacion::getMateria() const {
 
 double Calificacion::getNota() const {
     return nota;
+}
+
+Calificacion& Calificacion::operator=(const Calificacion& otra) {
+    if (this != &otra) {
+        estudiante = otra.estudiante;
+        profesor = otra.profesor;
+        materia = otra.materia;
+        nota = otra.nota;
+    }
+    return *this;
 }

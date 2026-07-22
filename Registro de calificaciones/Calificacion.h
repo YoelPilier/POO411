@@ -22,6 +22,10 @@ public:
         double nota
     );
 
+    Calificacion(const Calificacion& otra);
+
+    Calificacion& operator=(const Calificacion& otra);
+
     Estudiante getEstudiante() const;
     Profesor getProfesor() const;
     Materia getMateria() const;

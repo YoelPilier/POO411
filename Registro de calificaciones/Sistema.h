@@ -23,7 +23,11 @@ public:
     void registrarEstudiante();
     void registrarProfesor();
     void registrarMateria();
+    void agregar(const Estudiante& estudiante);
+    void agregar(const Profesor& profesor);
+    void agregar(const Materia& materia);
     void registrarCalificacion();
+
 
     void verEstudiantes() const;
     void verProfesores() const;
