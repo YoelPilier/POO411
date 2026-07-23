@@ -661,4 +661,29 @@ std::unique_ptr<Persona> persona =
 
 persona->saludar();
 ```
+---
 
+# Clases Virtuales Puras
+
+![bg left:30% width:100%](./imagenes/virtualpura.png)
+
+Una clase con al menos un método virtual puro se vuelve una clase abstracta.
+
+No se puede crear un objeto directo de esa clase.
+
+```cpp
+class Persona {
+public:
+    virtual void saludar() const = 0;
+
+    virtual ~Persona() = default;
+};
+
+class Estudiante : public Persona {
+public:
+    void saludar() const override {
+        std::cout << "Hola, soy estudiante";
+    }
+};
+
+```
