@@ -2,10 +2,11 @@
 #define ESTUDIANTE_H
 
 #include <string>
+#include "Persona.h"
 
-class Estudiante {
+class Estudiante : public Persona {
 private:
-    std::string nombreCompleto;
+
     std::string matricula;
     std::string sesion;
 

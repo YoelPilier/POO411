@@ -2,19 +2,22 @@
 
 Estudiante::Estudiante() {
 }
-
-Estudiante::Estudiante(const std::string& nombreCompleto,
-                       const std::string& matricula,
-                       const std::string& sesion)
-    : nombreCompleto(nombreCompleto),
+Estudiante::Estudiante(
+    const std::string& nombreCompleto,
+    const std::string& matricula,
+    const std::string& sesion)
+    : Persona(nombreCompleto),
       matricula(matricula),
-      sesion(sesion) {
+      sesion(sesion)
+{
 }
 
+
 Estudiante::Estudiante(const Estudiante& otro)
-    : nombreCompleto(otro.nombreCompleto),
+    : Persona(otro),
       matricula(otro.matricula),
-      sesion(otro.sesion) {
+      sesion(otro.sesion)
+{
 }
 
 std::string Estudiante::getNombreCompleto() const {
@@ -31,7 +34,7 @@ std::string Estudiante::getSesion() const {
 
 Estudiante& Estudiante::operator=(const Estudiante& otro) {
     if (this != &otro) {
-        nombreCompleto = otro.nombreCompleto;
+        Persona::operator=(otro);
         matricula = otro.matricula;
         sesion = otro.sesion;
     }
