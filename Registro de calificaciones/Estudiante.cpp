@@ -40,3 +40,23 @@ Estudiante& Estudiante::operator=(const Estudiante& otro) {
     }
     return *this;
 }
+
+std::ostream& operator<<(std::ostream& salida,
+                         const Estudiante& estudiante)
+{
+    salida
+        << estudiante.getNombreCompleto() << '|'
+        << estudiante.getMatricula() << '|'
+        << estudiante.getSesion();
+
+    return salida;
+}
+std::istream& operator>>(std::istream& entrada,
+                         Estudiante& estudiante)
+{
+    std::getline(entrada, estudiante.nombreCompleto, '|');
+    std::getline(entrada, estudiante.matricula, '|');
+    std::getline(entrada, estudiante.sesion);
+
+    return entrada;
+}

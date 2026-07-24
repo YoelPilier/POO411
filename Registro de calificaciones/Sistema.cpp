@@ -1,4 +1,5 @@
 #include "Sistema.h"
+#include "Almacenamiento.h"
 
 #include <fstream>
 #include <iomanip>
@@ -25,6 +26,8 @@ int Sistema::mostrarMenu() const {
     std::cout << "Opcion: ";
 
     std::cin >> opcion;
+
+    std::cout << "Leido: " << opcion << '\n';
 
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
@@ -460,21 +463,15 @@ void Sistema::cargarDatos() {
 
 void Sistema::guardarDatos() {
 
-    std::cout << "Calificaciones guardadas: "
-              << calificaciones.size()
-              << '\n';
+        std::cout << "Calificaciones guardadas: "
+                  << calificaciones.size()
+                  << '\n';
 
-    std::ofstream archivoEstudiantes("estudiantes.txt");
+        Almacenamiento::guardarEstudiantes(estudiantes);
 
-    for (const Estudiante& e : estudiantes) {
-        archivoEstudiantes
-            << e.getNombreCompleto() << '|'
-            << e.getMatricula() << '|'
-            << e.getSesion()
-            << '\n';
-    }
+        // Aquí todavía sigue el código para guardar
+        // profesores, materias y calificaciones.
 
-    archivoEstudiantes.close();
 
     std::ofstream archivoProfesores("profesores.txt");
 

@@ -1,11 +1,13 @@
 #ifndef PROFESOR_H
 #define PROFESOR_H
 
+#include <iostream>
 #include <string>
+#include "Persona.h"
 
-class Profesor {
+class Profesor : public Persona {
 private:
-    std::string nombreCompleto;
+
     std::string codigoProfesor;
 
 public:
@@ -19,6 +21,12 @@ public:
 
     std::string getNombreCompleto() const;
     std::string getCodigoProfesor() const;
+
+    friend std::ostream& operator<<(std::ostream& salida,
+                                    const Profesor& profesor);
+
+    friend std::istream& operator>>(std::istream& entrada,
+                                    Profesor& profesor);
 };
 
 #endif

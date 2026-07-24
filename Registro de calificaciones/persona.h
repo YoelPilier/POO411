@@ -18,6 +18,8 @@ public:
 
     std::string getNombreCompleto() const;
 
+    void setNombreCompleto(const std::string& nombreCompleto);
+
     virtual ~Persona();
 };
 

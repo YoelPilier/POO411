@@ -47,3 +47,15 @@ Calificacion& Calificacion::operator=(const Calificacion& otra) {
     }
     return *this;
 }
+
+std::ostream& operator<<(std::ostream& salida,
+                         const Calificacion& calificacion)
+{
+    salida
+        << calificacion.getEstudiante().getMatricula() << '|'
+        << calificacion.getProfesor().getCodigoProfesor() << '|'
+        << calificacion.getMateria().getCodigoMateria() << '|'
+        << calificacion.getNota();
+
+    return salida;
+}

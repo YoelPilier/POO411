@@ -1,6 +1,7 @@
 #ifndef ESTUDIANTE_H
 #define ESTUDIANTE_H
 
+#include <iostream>
 #include <string>
 #include "Persona.h"
 
@@ -23,6 +24,12 @@ public:
     std::string getNombreCompleto() const;
     std::string getMatricula() const;
     std::string getSesion() const;
+
+    friend std::ostream& operator<<(std::ostream& salida,
+                                    const Estudiante& estudiante);
+
+    friend std::istream& operator>>(std::istream& entrada,
+                                    Estudiante& estudiante);
 };
 
 #endif

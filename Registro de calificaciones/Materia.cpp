@@ -38,3 +38,14 @@ Materia& Materia::operator=(const Materia& otra) {
     }
     return *this;
 }
+
+std::ostream& operator<<(std::ostream& salida,
+                         const Materia& materia)
+{
+    salida
+        << materia.getNombreMateria() << '|'
+        << materia.getCodigoMateria() << '|'
+        << materia.getCantidadCreditos();
+
+    return salida;
+}

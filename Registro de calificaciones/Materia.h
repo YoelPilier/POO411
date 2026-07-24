@@ -1,6 +1,7 @@
 #ifndef MATERIA_H
 #define MATERIA_H
 
+#include <iostream>
 #include <string>
 
 class Materia {
@@ -22,6 +23,11 @@ public:
     std::string getNombreMateria() const;
     std::string getCodigoMateria() const;
     int getCantidadCreditos() const;
+    friend std::ostream& operator<<(std::ostream& salida,
+                                    const Materia& materia);
+
+    friend std::istream& operator>>(std::istream& entrada,
+                                    Materia& materia);
 };
 
 #endif

@@ -25,7 +25,14 @@ Persona& Persona::operator=(const Persona& otra) {
 }
 
 std::string Persona::getNombreCompleto() const {
-    return nombreCompleto;
+
+
+  return nombreCompleto;
+}
+
+void Persona::setNombreCompleto(const std::string& nombreCompleto)
+{
+    this->nombreCompleto = nombreCompleto;
 }
 
 Persona::~Persona() {

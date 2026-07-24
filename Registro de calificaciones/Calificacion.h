@@ -1,6 +1,7 @@
 #ifndef CALIFICACION_H
 #define CALIFICACION_H
 
+#include <iostream>
 #include "Estudiante.h"
 #include "Profesor.h"
 #include "Materia.h"
@@ -30,6 +31,12 @@ public:
     Profesor getProfesor() const;
     Materia getMateria() const;
     double getNota() const;
+
+    friend std::ostream& operator<<(std::ostream& salida,
+                                    const Calificacion& calificacion);
+
+    friend std::istream& operator>>(std::istream& entrada,
+                                    Calificacion& calificacion);
 };
 
 #endif
