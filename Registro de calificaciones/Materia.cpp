@@ -1,4 +1,5 @@
 #include "Materia.h"
+#include <limits>
 
 Materia::Materia()
     : cantidadCreditos(0) {
@@ -48,4 +49,16 @@ std::ostream& operator<<(std::ostream& salida,
         << materia.getCantidadCreditos();
 
     return salida;
+}
+
+std::istream& operator>>(std::istream& entrada,
+                         Materia& materia)
+{
+    std::getline(entrada, materia.nombreMateria, '|');
+    std::getline(entrada, materia.codigoMateria, '|');
+
+    entrada >> materia.cantidadCreditos;
+    entrada.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+    return entrada;
 }

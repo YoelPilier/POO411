@@ -1,7 +1,8 @@
 #include "Calificacion.h"
 
 Calificacion::Calificacion()
-    : nota(0.0) {
+    : nota(0.0)
+{
 }
 
 Calificacion::Calificacion(
@@ -12,39 +13,47 @@ Calificacion::Calificacion(
     : estudiante(estudiante),
       profesor(profesor),
       materia(materia),
-      nota(nota) {
+      nota(nota)
+{
 }
 
 Calificacion::Calificacion(const Calificacion& otra)
     : estudiante(otra.estudiante),
       profesor(otra.profesor),
       materia(otra.materia),
-      nota(otra.nota) {
+      nota(otra.nota)
+{
 }
 
-Estudiante Calificacion::getEstudiante() const {
+Estudiante Calificacion::getEstudiante() const
+{
     return estudiante;
 }
 
-Profesor Calificacion::getProfesor() const {
+Profesor Calificacion::getProfesor() const
+{
     return profesor;
 }
 
-Materia Calificacion::getMateria() const {
+Materia Calificacion::getMateria() const
+{
     return materia;
 }
 
-double Calificacion::getNota() const {
+double Calificacion::getNota() const
+{
     return nota;
 }
 
-Calificacion& Calificacion::operator=(const Calificacion& otra) {
+Calificacion& Calificacion::operator=(const Calificacion& otra)
+{
     if (this != &otra) {
         estudiante = otra.estudiante;
         profesor = otra.profesor;
         materia = otra.materia;
         nota = otra.nota;
     }
+
     return *this;
 }
 

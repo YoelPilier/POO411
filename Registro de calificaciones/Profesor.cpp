@@ -2,6 +2,7 @@
 
 Profesor::Profesor() {
 }
+
 Profesor::Profesor(
     const std::string& nombreCompleto,
     const std::string& codigoProfesor)
@@ -10,15 +11,10 @@ Profesor::Profesor(
 {
 }
 
-
 Profesor::Profesor(const Profesor& otro)
     : Persona(otro),
       codigoProfesor(otro.codigoProfesor)
 {
-}
-
-std::string Profesor::getNombreCompleto() const {
-    return nombreCompleto;
 }
 
 std::string Profesor::getCodigoProfesor() const {
@@ -32,6 +28,7 @@ Profesor& Profesor::operator=(const Profesor& otro) {
     }
     return *this;
 }
+
 std::ostream& operator<<(std::ostream& salida,
                          const Profesor& profesor)
 {
@@ -41,6 +38,7 @@ std::ostream& operator<<(std::ostream& salida,
 
     return salida;
 }
+
 std::istream& operator>>(std::istream& entrada,
                          Profesor& profesor)
 {

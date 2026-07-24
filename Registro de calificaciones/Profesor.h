@@ -6,12 +6,13 @@
 #include "Persona.h"
 
 class Profesor : public Persona {
-private:
 
+private:
     std::string codigoProfesor;
 
 public:
     Profesor();
+
     Profesor(const std::string& nombreCompleto,
              const std::string& codigoProfesor);
 
@@ -19,7 +20,6 @@ public:
 
     Profesor& operator=(const Profesor& otro);
 
-    std::string getNombreCompleto() const;
     std::string getCodigoProfesor() const;
 
     friend std::ostream& operator<<(std::ostream& salida,

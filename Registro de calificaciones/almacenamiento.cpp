@@ -18,22 +18,63 @@ void Almacenamiento::cargarEstudiantes(
 {
     std::ifstream archivo("estudiantes.txt");
 
-    std::string linea;
+    Estudiante estudiante;
 
-    while (std::getline(archivo, linea)) {
+    while (archivo >> estudiante) {
+        estudiantes.push_back(estudiante);
+    }
+}
 
-        std::stringstream ss(linea);
+void Almacenamiento::guardarProfesores(
+    const std::vector<Profesor>& profesores)
+{
+    std::ofstream archivo("profesores.txt");
 
-        std::string nombre;
-        std::string matricula;
-        std::string sesion;
+    for (const Profesor& profesor : profesores) {
+        archivo << profesor << '\n';
+    }
+}
 
-        std::getline(ss, nombre, '|');
-        std::getline(ss, matricula, '|');
-        std::getline(ss, sesion);
+void Almacenamiento::cargarProfesores(
+    std::vector<Profesor>& profesores)
+{
+    std::ifstream archivo("profesores.txt");
 
-        estudiantes.push_back(
-            Estudiante(nombre, matricula, sesion)
-        );
+    Profesor profesor;
+
+    while (archivo >> profesor) {
+        profesores.push_back(profesor);
+    }
+}
+
+void Almacenamiento::guardarMaterias(
+    const std::vector<Materia>& materias)
+{
+    std::ofstream archivo("materias.txt");
+
+    for (const Materia& materia : materias) {
+        archivo << materia << '\n';
+    }
+}
+
+void Almacenamiento::cargarMaterias(
+    std::vector<Materia>& materias)
+{
+    std::ifstream archivo("materias.txt");
+
+    Materia materia;
+
+    while (archivo >> materia) {
+        materias.push_back(materia);
+    }
+}
+
+void Almacenamiento::guardarCalificaciones(
+    const std::vector<Calificacion>& calificaciones)
+{
+    std::ofstream archivo("calificaciones.txt");
+
+    for (const Calificacion& calificacion : calificaciones) {
+        archivo << calificacion << '\n';
     }
 }

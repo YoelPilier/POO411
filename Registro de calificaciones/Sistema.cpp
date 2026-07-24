@@ -308,83 +308,25 @@ void Sistema::verCalificaciones() const {
             << c.getNota() << '\n';
     }
 }
+void Sistema::cargarDatos()
+{
+    // Cargar estudiantes
+    Almacenamiento::cargarEstudiantes(estudiantes);
 
-void Sistema::cargarDatos() {
+    // Cargar profesores
+    Almacenamiento::cargarProfesores(profesores);
+
+    // Cargar materias
+    Almacenamiento::cargarMaterias(materias);
+
     std::string linea;
 
-    std::ifstream archivoEstudiantes("estudiantes.txt");
-
-    if (archivoEstudiantes.is_open()) {
-        while (std::getline(archivoEstudiantes, linea)) {
-            std::stringstream ss(linea);
-
-            std::string nombre;
-            std::string matricula;
-            std::string sesion;
-
-            std::getline(ss, nombre, '|');
-            std::getline(ss, matricula, '|');
-            std::getline(ss, sesion, '|');
-
-            estudiantes.push_back(
-                Estudiante(nombre, matricula, sesion)
-            );
-        }
-
-        archivoEstudiantes.close();
-
-
-    }
-
-    std::ifstream archivoProfesores("profesores.txt");
-
-    if (archivoProfesores.is_open()) {
-        while (std::getline(archivoProfesores, linea)) {
-            std::stringstream ss(linea);
-
-            std::string nombre;
-            std::string codigo;
-
-            std::getline(ss, nombre, '|');
-            std::getline(ss, codigo, '|');
-
-            profesores.push_back(
-                Profesor(nombre, codigo)
-            );
-        }
-
-        archivoProfesores.close();
-    }
-
-    std::ifstream archivoMaterias("materias.txt");
-
-    if (archivoMaterias.is_open()) {
-        while (std::getline(archivoMaterias, linea)) {
-            std::stringstream ss(linea);
-
-            std::string nombre;
-            std::string codigo;
-            std::string creditosTexto;
-
-            std::getline(ss, nombre, '|');
-            std::getline(ss, codigo, '|');
-            std::getline(ss, creditosTexto, '|');
-
-            materias.push_back(
-                Materia(
-                    nombre,
-                    codigo,
-                    std::stoi(creditosTexto)
-                )
-            );
-        }
-
-        archivoMaterias.close();
-    }
     std::ifstream archivoCalificaciones("calificaciones.txt");
 
     if (archivoCalificaciones.is_open()) {
+
         while (std::getline(archivoCalificaciones, linea)) {
+
             std::stringstream ss(linea);
 
             std::string matricula;
@@ -445,72 +387,18 @@ void Sistema::cargarDatos() {
         }
 
         archivoCalificaciones.close();
-
-        std::ofstream archivoCalificaciones("calificaciones.txt");
-
-        for (const Calificacion& c : calificaciones) {
-            archivoCalificaciones
-                << c.getEstudiante().getMatricula() << '|'
-                << c.getProfesor().getCodigoProfesor() << '|'
-                << c.getMateria().getCodigoMateria() << '|'
-                << c.getNota()
-                << '\n';
-        }
-
-        archivoCalificaciones.close();
     }
 }
 
-void Sistema::guardarDatos() {
+void Sistema::guardarDatos()
+{
+    Almacenamiento::guardarEstudiantes(estudiantes);
+    Almacenamiento::guardarProfesores(profesores);
+    Almacenamiento::guardarMaterias(materias);
+    Almacenamiento::guardarCalificaciones(calificaciones);
 
-        std::cout << "Calificaciones guardadas: "
-                  << calificaciones.size()
-                  << '\n';
-
-        Almacenamiento::guardarEstudiantes(estudiantes);
-
-        // Aquí todavía sigue el código para guardar
-        // profesores, materias y calificaciones.
-
-
-    std::ofstream archivoProfesores("profesores.txt");
-
-    for (const Profesor& p : profesores) {
-        archivoProfesores
-            << p.getNombreCompleto() << '|'
-            << p.getCodigoProfesor()
-            << '\n';
-    }
-
-    archivoProfesores.close();
-
-    std::ofstream archivoMaterias("materias.txt");
-
-    for (const Materia& m : materias) {
-        archivoMaterias
-            << m.getNombreMateria() << '|'
-            << m.getCodigoMateria() << '|'
-            << m.getCantidadCreditos()
-            << '\n';
-    }
-
-    archivoMaterias.close();
-
-    std::ofstream archivoCalificaciones("calificaciones.txt");
-
-    for (const Calificacion& c : calificaciones) {
-        archivoCalificaciones
-            << c.getEstudiante().getMatricula() << '|'
-            << c.getProfesor().getCodigoProfesor() << '|'
-            << c.getMateria().getCodigoMateria() << '|'
-            << c.getNota()
-            << '\n';
-    }
-
-    archivoCalificaciones.close();
+    std::cout << "\nDatos guardados correctamente.\n";
 }
-
-
 void Sistema::ejecutar() {
     cargarDatos();
 
