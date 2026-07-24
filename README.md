@@ -16,6 +16,7 @@
 - [Clase 2](./clase_2/clase-2.md) 
     - [Codigo clase 2](./clase_2/codigo)
 - [Clase 3](./clase_3/clase-3.md) 
+    - [Codigo clase 3](./clase_3/codigo)
 
 ## Para los diagramas y dibujos
 
