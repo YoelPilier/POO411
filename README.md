@@ -21,3 +21,33 @@
 ## Para los diagramas y dibujos
 
 - [excalidraw](https://excalidraw.com/)
+
+## Instalar Clang y Git
+
+- Windows (WinGet):
+
+  ```powershell
+  winget install LLVM.LLVM Git.Git
+  ```
+
+- Linux: usa el gestor de paquetes de tu distribución. Por ejemplo:
+
+  - Debian/Ubuntu:
+
+    ```bash
+    sudo apt update
+    sudo apt install clang git
+    ```
+
+  - Fedora:
+
+    ```bash
+    sudo dnf install clang git
+    ```
+
+Para comprobar la instalación:
+
+```bash
+clang++ --version
+git --version
+```
