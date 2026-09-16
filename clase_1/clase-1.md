@@ -104,6 +104,54 @@ clang++ -std=c++20 -Wall -Wextra -Wpedantic -Werror hola_mundo.cpp -o hola_mundo
 ```
 ---
 
+# Banderas: etapas y salida
+
+<style scoped>
+h1 { font-size: 36px; }
+table { font-size: 25px; }
+th, td { padding: 6px 10px; }
+p { font-size: 21px; }
+</style>
+
+![bg left:30% width:100%](./imagenes/banderas_compilacion.png)
+
+Opciones para `g++` y `clang++`:
+
+| Bandera | ¿Para qué sirve? |
+|---------|------------------|
+| `-E` | Solo preprocesa: expande macros e inclusiones (`#include`). |
+| `-S` | Genera código ensamblador (`.s`); no crea el objeto. |
+| `-c` | Genera un archivo objeto (`.o`); no enlaza el ejecutable. |
+| `-O` / `-O1` | Activa optimización básica; `-O2` y `-O3` añaden más. |
+| `-o archivo` | Define el nombre del archivo de salida. |
+
+**Ojo:** `-c` es minúscula; `-O` optimiza y `-o` nombra la salida.
+
+---
+
+# Banderas: estándar y advertencias
+
+<style scoped>
+h1 { font-size: 36px; }
+table { font-size: 25px; }
+th, td { padding: 6px 10px; }
+p { font-size: 21px; }
+</style>
+
+![bg left:30% width:100%](./imagenes/banderas_compilacion.png)
+
+Opciones para `g++` y `clang++`:
+
+| Bandera | ¿Para qué sirve? |
+|---------|------------------|
+| `-std=c++20` | Selecciona el estándar C++20. |
+| `-Wall` | Activa un grupo amplio de advertencias, no todas. |
+| `-Wextra` | Añade advertencias que `-Wall` no incluye. |
+| `-Wpedantic` | Advierte sobre ciertas extensiones ajenas al estándar. |
+| `-Werror` | Trata las advertencias como errores. |
+
+---
+
 # Variables y Tipos de Datos
 
 
@@ -295,4 +343,3 @@ if (archivo.is_open()) {
 } 
 
 ```
-
