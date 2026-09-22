@@ -9,9 +9,6 @@ outputs/
 *.o
 *.obj
 
-# Generated assembly
-*.s
-
 # Precompiled Headers
 *.gch
 *.pch
