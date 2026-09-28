@@ -166,6 +166,24 @@ Opciones para `g++` y `clang++`:
 
 ---
 
+# Constantes
+
+![bg left:30% width:100%](./imagenes/constantes.png)
+
+Una constante conserva su valor después de inicializarse.
+
+```cpp
+const int edadMinima = 18;
+constexpr double PI = 3.14159;
+
+// edadMinima = 21; // Error: no se puede modificar
+```
+
+- `const`: impide modificar la variable después de inicializarla.
+- `constexpr`: además exige un valor calculable en tiempo de compilación.
+
+---
+
 # Operadores
 
 | Operador | Descripción | Ejemplo |
@@ -239,6 +257,36 @@ int sumar(int a, int b) {
 ```
 
 ---
+
+# Entrada desde el sistema: `argc` y `argv`
+
+<style scoped>
+h1 { font-size: 34px; }
+p, li { font-size: 24px; }
+pre { font-size: 23px; }
+</style>
+
+![bg left:30% width:100%](./imagenes/argumentos_linea_comandos.png)
+
+Los argumentos se pasan al iniciar el programa desde la terminal.
+
+```cpp
+#include <iostream>
+
+int main(int argc, char* argv[]) {
+    for (int i = 0; i < argc; ++i) {
+        std::cout << argv[i] << '\n';
+    }
+}
+```
+
+- `argc`: cantidad de argumentos, incluido el nombre del programa.
+- `argv[0]`: nombre o ruta usada para ejecutarlo; `argv[1]` es el primer argumento del usuario.
+
+Ejemplo: `./programa Ana 20` → `argc` vale `3`.
+
+---
+
 # Entrada y Salida
 
 ```cpp
