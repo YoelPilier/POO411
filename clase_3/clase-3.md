@@ -21,6 +21,43 @@ lang: es-ES
 
 ---
 
+# Arreglos (`[]`)
+
+![bg left:30% width:100%](./imagenes/arreglos.png)
+
+Un arreglo guarda varios valores del mismo tipo. Su tamaño se fija al crearlo.
+
+```cpp
+int notas[3] = {80, 90, 100};
+
+int primera = notas[0]; // 80
+notas[1] = 95;          // Cambia el segundo valor
+```
+
+Los índices empiezan en `0`: en este ejemplo, van de `0` a `2`.
+
+---
+
+# `std::vector`
+
+![bg left:30% width:100%](./imagenes/vector.png)
+
+Un `std::vector` guarda valores del mismo tipo, pero puede cambiar de tamaño.
+
+```cpp
+#include <vector>
+
+std::vector<int> notas = {80, 90, 100};
+
+notas.push_back(95); // Agrega un cuarto valor
+int primera = notas[0]; // 80
+auto cantidad = notas.size(); // 4
+```
+
+Se accede a los elementos con `[]`, igual que en un arreglo.
+
+---
+
 # Punteros
 
 ![bg  left:30% width:100% ](./imagenes/memoria_ptr.png)
