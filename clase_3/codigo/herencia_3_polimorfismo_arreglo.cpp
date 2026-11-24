@@ -11,6 +11,8 @@ public:
     this->nombre = n;
     this->edad = e;
   }
+  virtual ~Persona() = default;
+
   std::string get_nombre() const { return this->nombre; }
   virtual void saludar() const {
     std::cout << "Hola, soy " << this->nombre << std::endl;
@@ -26,7 +28,7 @@ public:
     this->matricula = m;
   }
   void saludar() const override {
-    std::cout << "Hola soy" << this->get_nombre()
+    std::cout << "Hola soy " << this->get_nombre()
               << " mi perro se comio mi tarea" << std::endl;
   }
 
@@ -45,14 +47,19 @@ public:
   }
 };
 int main() {
-  std::vector<Persona> personas;
+  std::vector<Persona *> personas;
 
-  personas.push_back(Persona("Juan", 42));
-  personas.push_back(Profesor("Pedro", 45, "atracos"));
-  personas.push_back(Estudiante("carlo", 22, "rew453"));
+  personas.push_back(new Persona("Juan", 42));
+  personas.push_back(new Profesor("Pedro", 45, "atracos"));
+  personas.push_back(new Estudiante("carlo", 22, "rew453"));
 
   for (int i = 0; i < 3; i++)
-    personas[i].saludar();
+    personas[i]->saludar();
+
+  for (int i = 0; i < 3; i++) {
+    delete personas[i];
+  }
+  personas.clear();
 
   // personas[2].mostrarMatricula();
   return 0;
